@@ -264,7 +264,32 @@
 				 * @param string $logo_container
 				 */
 				echo apply_filters( 'et_html_logo_container', $logo_container );
-			?>
+			?>	
+			
+				<?php if(is_front_page()){ 
+					if ( get_theme_mod( 'sk_home_top_slider_image1' ) ) {
+						$home_top_background_image_url = get_theme_mod( 'sk_home_top_slider_image1' );
+					} else {
+						$home_top_background_image_url = 'wp-content/uploads/2018/11/pic1.png';
+					}
+					if ( get_theme_mod( 'sk_home_top_slider_image2' ) ) {
+						$home_top_background_image_url2 = get_theme_mod( 'sk_home_top_slider_image2' );
+					} else {
+						$home_top_background_image_url2 = 'wp-content/uploads/2018/11/pic2.png';
+					}
+				?>
+				
+					<div class="home_banner clearfix">
+						<div class="banner_img banner_img1">
+							<img src="<?php echo $home_top_background_image_url; ?>" alt="banner_img1">
+						</div>
+						<div class="banner_img">
+							<img src="<?php echo $home_top_background_image_url2;?>" alt="banner_img2">
+						</div>
+							<a href="<?php echo get_theme_mod('banner_btn_link');?>" class="banner_btn"><?php echo get_theme_mod('banner_btn_text');?></a>
+						<div class="clearfix"></div>
+					</div>
+				<?php }?>
 				<div class="main-menu">	
 					<div id="et-top-navigation" data-height="<?php echo esc_attr( et_get_option( 'menu_height', '66' ) ); ?>" data-fixed-height="<?php echo esc_attr( et_get_option( 'minimized_menu_height', '40' ) ); ?>">
 						<?php if ( ! $et_slide_header || is_customize_preview() ) : ?>
