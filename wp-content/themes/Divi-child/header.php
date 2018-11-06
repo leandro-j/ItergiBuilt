@@ -24,7 +24,6 @@
 		document.documentElement.className = 'js';
 	</script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet">
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
@@ -199,171 +198,139 @@
 	<?php endif; // true ==== $et_slide_header ?>
 
 	<?php ob_start(); ?>
-		<header id="main-header" data-height-onload="<?php echo esc_attr( et_get_option( 'menu_height', '66' ) ); ?>">
-			<div class="container clearfix et_menu_container">
-				<div class="container">
-				<?php
-					$logo = ( $user_logo = et_get_option( 'divi_logo' ) ) && '' != $user_logo
-						? $user_logo
-						: $template_directory_uri . '/images/logo.png';
-
-					ob_start();
-				?>
-				
-					<div class="header-top clearfix">
-						<div class="header-top-left">
-							<ul class="social-icons search-form">
-								<li class="social-icon1">
-									<div class="header-social">
-										<?php if(true === $show_header_social_icons) :
-												get_template_part( 'includes/social_icons', 'header' );
-											endif; ?>
-									</div>
-								</li>
-								<li class="search_form">
-									<?php if ( ( false !== et_get_option( 'show_search_icon', true ) && ! $et_slide_header ) || is_customize_preview() ) : ?>
-										<form role="search" method="get" class="et-search-form1" action="<?php echo esc_url( home_url( '/' ) ); ?>">
-										<?php
-											printf( '<input type="search" class="et-search-field1" placeholder="WHAT CAN WE HELP YOU FIND?" value="%2$s" name="s" title="%3$s" />',
-												esc_attr__( 'Search &hellip;', 'Divi' ),
-												get_search_query(),
-												esc_attr__( 'Search for:', 'Divi' )
-											);
-										?>
-										</form>
-									<?php endif;?>
-								</li>
-							</ul>	
-						</div>
-						<div class="logo_container">
-							<span class="logo_helper"></span>
-							<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
-								<img src="<?php echo esc_attr( $logo ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" id="logo" data-height-percentage="<?php echo esc_attr( et_get_option( 'logo_height', '54' ) ); ?>" />
-							</a>
-						</div>
-						<div class="header-top-right">
-							<ul>
-								<li>
-									<?php if ( '' !== ( $et_phone_number = et_get_option( 'phone_number' ) ) ) : ?>
-									<span id="et-info-phone"><?php echo et_sanitize_html_input_text( $et_phone_number ); ?></span>
-								<?php endif; ?>
-								</li>
-								<li><a href="#">MAKE AN APPOINTMENT</a></li>
-							</ul>
-						</div>
-					</div>	
-				</div>	
+		<header id="main-header" data-height-onload="<?php echo esc_attr( et_get_option( 'menu_height', '66' ) ); ?>">			
 			<?php
-				$logo_container = ob_get_clean();
-
-				/**
-				 * Filters the HTML output for the logo container.
-				 *
-				 * @since 3.10
-				 *
-				 * @param string $logo_container
-				 */
-				echo apply_filters( 'et_html_logo_container', $logo_container );
-			?>	
-			
-				<?php if(is_front_page()){ 
-					if ( get_theme_mod( 'sk_home_top_slider_image1' ) ) {
-						$home_top_background_image_url = get_theme_mod( 'sk_home_top_slider_image1' );
-					} else {
-						$home_top_background_image_url = 'wp-content/uploads/2018/11/pic1.png';
-					}
-					if ( get_theme_mod( 'sk_home_top_slider_image2' ) ) {
-						$home_top_background_image_url2 = get_theme_mod( 'sk_home_top_slider_image2' );
-					} else {
-						$home_top_background_image_url2 = 'wp-content/uploads/2018/11/pic2.png';
-					}
-				?>
-				
-					<div class="home_banner clearfix">
-						<div class="banner_img banner_img1">
-							<img src="<?php echo $home_top_background_image_url; ?>" alt="banner_img1">
-						</div>
-						<div class="banner_img">
-							<img src="<?php echo $home_top_background_image_url2;?>" alt="banner_img2">
-						</div>
-							<a href="<?php echo get_theme_mod('banner_btn_link');?>" class="banner_btn"><?php echo get_theme_mod('banner_btn_text');?></a>
-						<div class="clearfix"></div>
+			$logo = ( $user_logo = et_get_option( 'divi_logo' ) ) && '' != $user_logo
+				? $user_logo
+				: $template_directory_uri . '/images/logo.png';
+			ob_start();
+			?>
+			<div class="container clearfix et_menu_container">	
+				<div class="header-top clearfix">
+					<div class="header-top-left">
+						<div class="header-top-left-inner">
+							<div class="social-icons">
+								<div class="header-social">
+									<?php if(true === $show_header_social_icons) :
+										get_template_part( 'includes/social_icons', 'header' );
+									endif; ?>
+								</div>
+							</div>
+							<div class="search_form">
+								<?php if ( ( false !== et_get_option( 'show_search_icon', true ) && ! $et_slide_header ) || is_customize_preview() ) : ?>
+									<form role="search" method="get" class="et-search-form1" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+									<?php
+										printf( '<input type="search" class="et-search-field1" placeholder="WHAT CAN WE HELP YOU FIND?" value="%2$s" name="s" title="%3$s" />',
+											esc_attr__( 'Search &hellip;', 'Divi' ),
+											get_search_query(),
+											esc_attr__( 'Search for:', 'Divi' )
+										);
+									?>
+									</form>
+								<?php endif;?>
+							</div>
+						</div>	
 					</div>
-				<?php }?>
-				<div class="main-menu">	
-					<div id="et-top-navigation" data-height="<?php echo esc_attr( et_get_option( 'menu_height', '66' ) ); ?>" data-fixed-height="<?php echo esc_attr( et_get_option( 'minimized_menu_height', '40' ) ); ?>">
-						<?php if ( ! $et_slide_header || is_customize_preview() ) : ?>
-							<nav id="top-menu-nav">
-							<?php
+					<div class="logo_container">
+						<span class="logo_helper"></span>
+						<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
+							<img src="<?php echo esc_attr( $logo ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" id="logo" data-height-percentage="<?php echo esc_attr( et_get_option( 'logo_height', '54' ) ); ?>" />
+						</a>
+					</div>
+					<div class="header-top-right">
+						<div class="header-top-right-inner">
+							<div class="phone_number">
+								<?php if ( '' !== ( $et_phone_number = et_get_option( 'phone_number' ) ) ) : ?>
+								<span id="et-info-phone"><?php echo et_sanitize_html_input_text( $et_phone_number ); ?></span>
+							<?php endif; ?>
+							</div>
+							<div class="appointment_button">
+								<a href="#">MAKE AN APPOINTMENT</a>
+							</div>
+						</div>
+					</div>
+				</div>	
+			</div> <!-- .container -->	
+			<?php
+			$logo_container = ob_get_clean();
+			echo apply_filters( 'et_html_logo_container', $logo_container );?>				
+			<div class="main-menu">	
+				<div id="et-top-navigation" data-height="<?php echo esc_attr( et_get_option( 'menu_height', '66' ) ); ?>" data-fixed-height="<?php echo esc_attr( et_get_option( 'minimized_menu_height', '40' ) ); ?>">
+					<?php if ( ! $et_slide_header || is_customize_preview() ) : ?>
+						<nav id="top-menu-nav">
+							<ul id="top-menu" class="nav">
+								<?php
 								$menuClass = 'nav';
 								if ( 'on' == et_get_option( 'divi_disable_toptier' ) ) $menuClass .= ' et_disable_top_tier';
 								$primaryNav = '';
-
-								$primaryNav = wp_nav_menu( array( 'theme_location' => 'primary-menu', 'container' => '', 'fallback_cb' => '', 'menu_class' => $menuClass, 'menu_id' => 'top-menu', 'echo' => false ) );
-
-								if ( '' == $primaryNav ) :
-							?>
-								<ul id="top-menu" class="<?php echo esc_attr( $menuClass ); ?>">
-									<?php if ( 'on' == et_get_option( 'divi_home_link' ) ) { ?>
-										<li <?php if ( is_home() ) echo( 'class="current_page_item"' ); ?>><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php esc_html_e( 'Home', 'Divi' ); ?></a></li>
-									<?php }; ?>
-
-									<?php show_page_menu( $menuClass, false, false ); ?>
-									<?php show_categories_menu( $menuClass, false ); ?>
+								$primaryNav = wp_nav_menu( array( 'theme_location' => 'primary-menu', 'container' => '', 'fallback_cb' => '', 'menu_class' => $menuClass, 'echo' => false,'items_wrap'=>'%3$s' ) );?>								
+							<?php 
+							if ( '' == $primaryNav ) :?>
+							<ul id="top-menu" class="<?php echo esc_attr( $menuClass ); ?>">
+								<?php if ( 'on' == et_get_option( 'divi_home_link' ) ) { ?>
+									<li <?php if ( is_home() ) echo( 'class="current_page_item"' ); ?>><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php esc_html_e( 'Home', 'Divi' ); ?></a></li>
+								<?php }; ?>
+								<?php show_page_menu( $menuClass, false, false ); ?>
+								<?php show_categories_menu( $menuClass, false ); ?>
+						<?php
+							else :
+								echo( $primaryNav );?>
+								<li class="mobile_search" style="display:none"><a href="">Search</a><span class="sub-menu-toggle"></span>
+									<ul class="sub-menu">
+										<li>
+										<div class="search_form ">
+											<?php if ( ( false !== et_get_option( 'show_search_icon', true ) && ! $et_slide_header ) || is_customize_preview() ) : ?>
+												<form role="search" method="get" class="et-search-form1" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+												<?php
+													printf( '<input type="search" class="et-search-field1" placeholder="WHAT CAN WE HELP YOU FIND?" value="%2$s" name="s" title="%3$s" />',
+														esc_attr__( 'Search &hellip;', 'Divi' ),
+														get_search_query(),
+														esc_attr__( 'Search for:', 'Divi' )
+													);
+												?>
+												</form>
+											<?php endif;?> 
+										</div>
+										<li>										
+									</ul>
+								</li>
+								<li class="mobile_appointment" style="display:none"><a href="#">MAKE AN APPOINTMENT</a></li>
 								</ul>
-							<?php
-								else :
-									echo( $primaryNav );
-								endif;
-							?>
-							</nav>
-						<?php endif; ?>
+							<?php endif;?>
+						</nav>
+					<?php endif; ?>
+					
+					
 
-						<?php
-						if ( ! $et_top_info_defined && ( ! $et_slide_header || is_customize_preview() ) ) {
-							et_show_cart_total( array(
-								'no_text' => true,
-							) );
-						}
-						?>
-
-						<?php if ( $et_slide_header || is_customize_preview() ) : ?>
-							<span class="mobile_menu_bar et_pb_header_toggle et_toggle_<?php echo esc_attr( et_get_option( 'header_style', 'left' ) ); ?>_menu"></span>
-						<?php endif; ?>
-
-						<?php if ( ( false !== et_get_option( 'show_search_icon', true ) && ! $et_slide_header ) || is_customize_preview() ) : ?>
-						<div id="et_top_search">
-							<span id="et_search_icon"></span>
-						</div>
-						<?php endif; // true === et_get_option( 'show_search_icon', false ) ?>
-
-						<?php
-
-						/**
-						 * Fires at the end of the 'et-top-navigation' element, just before its closing tag.
-						 *
-						 * @since 1.0
-						 */
-						do_action( 'et_header_top' );
-
-						?>
-					</div> <!-- #et-top-navigation -->
-				</div>
-			</div> <!-- .container -->
-			<div class="et_search_outer">
-				<div class="container et_search_form_container">
-					<form role="search" method="get" class="et-search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
 					<?php
-						printf( '<input type="search" class="et-search-field" placeholder="%1$s" value="%2$s" name="s" title="%3$s" />',
-							esc_attr__( 'Search &hellip;', 'Divi' ),
-							get_search_query(),
-							esc_attr__( 'Search for:', 'Divi' )
-						);
+					if ( ! $et_top_info_defined && ( ! $et_slide_header || is_customize_preview() ) ) {
+						et_show_cart_total( array(
+							'no_text' => true,
+						) );
+					}?>
+
+					<?php if ( $et_slide_header || is_customize_preview() ) : ?>
+						<span class="mobile_menu_bar et_pb_header_toggle et_toggle_<?php echo esc_attr( et_get_option( 'header_style', 'left' ) ); ?>_menu"></span>
+					<?php endif; ?>
+
+					<?php /*if ( ( false !== et_get_option( 'show_search_icon', true ) && ! $et_slide_header ) || is_customize_preview() ) : ?>
+					<div id="et_top_search">
+						<span id="et_search_icon"></span>
+					</div>
+					<?php endif;*/ // true === et_get_option( 'show_search_icon', false ) ?>
+
+					<?php
+
+					/**
+					 * Fires at the end of the 'et-top-navigation' element, just before its closing tag.
+					 *
+					 * @since 1.0
+					 */
+					do_action( 'et_header_top' );
+
 					?>
-					</form>
-					<span class="et_close_search_field"></span>
-				</div>
-			</div>
+				</div> <!-- #et-top-navigation -->
+			</div>					
 		</header> <!-- #main-header -->
 	<?php
 		$main_header = ob_get_clean();
