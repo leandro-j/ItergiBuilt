@@ -157,13 +157,13 @@ function faq_toggle_closed_default(){?>
 	</script>
 <?php }
 
-
+//Added one image size with cropping. 480px*350px. Name of the image size is "work-cropped-480x350"
 add_action('init','image_resize_custom');
 function image_resize_custom(){
 	add_image_size( 'work-cropped-480x350', 480, 350, true );
 }
 
-
+//Created Contact Form Date Slider. It's an owl carousel. Described there: https://owlcarousel2.github.io/OwlCarousel2/
 function contact_date_shortcode(){
 	ob_start();
 	?>
@@ -195,5 +195,5 @@ function contact_date_shortcode(){
 	<?Php
 	return ob_get_clean();
 }
-
+//Created a shortcode for this slider [contact_date_shortcode]
 add_shortcode('contact_date_shortcode','contact_date_shortcode');
