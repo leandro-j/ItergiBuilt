@@ -86,7 +86,7 @@ add_action( 'widgets_init', 'my_custom_sidebar' );
 }
 add_action( 'customize_register', 'custom_register_theme_customizer' );
 
-
+//Created custom post type "work". Capability type is post. Not hierarchical. Has archive.
 function work_custom_post_type(){
 	$args = array(
 		'label'=>'Our Work',
@@ -115,7 +115,7 @@ function work_custom_post_type(){
 }
 add_action('init','work_custom_post_type',0);
 
-
+//Created custom category for post type "work". Hierarchical. Slug is "our-work".
 function work_custom_category() {
   $args = array(
     'label' => 'Categories',
@@ -127,11 +127,11 @@ function work_custom_category() {
 }
 add_action( 'init', 'work_custom_category');
 
-
+//1.Created divi faq accordeon toggle functionality 2. Created sticky menu functionality when scrolling.
 add_action('wp_footer','faq_toggle_closed_default');
 function faq_toggle_closed_default(){?>
 	<script>
-
+	//1.Created divi faq accordeon toggle functionality 
 	jQuery(function($){
 		$('.et_pb_accordion .et_pb_toggle_open').addClass('et_pb_toggle_close').removeClass('et_pb_toggle_open');
 
@@ -142,7 +142,7 @@ function faq_toggle_closed_default(){?>
 			},700);
 		});	
 	});
-
+	//2. Created sticky menu functionality when scrolling.
 	jQuery(window).load(function(){
 		var distance = jQuery('.scroll_sticky,.main-menu').offset().top,
 		$window = jQuery(window);
