@@ -1,16 +1,19 @@
 <?php
+//Connected style files .css and .js files to the current (child) theme Divi-child
 add_action( 'wp_enqueue_scripts', 'my_theme_enqueue_styles' );
 function my_theme_enqueue_styles() {
+	//styles
     wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
 	wp_enqueue_style( 'custom_css', get_stylesheet_directory_uri() . '/css/custom.css' );
 	wp_enqueue_style( 'custom_css2', get_stylesheet_directory_uri() . '/css/custom2.css' );
 	wp_enqueue_style( 'owl_css', get_stylesheet_directory_uri() . '/css/owl.css' );
 	wp_enqueue_style( 'owl_theme_css', get_stylesheet_directory_uri() . '/css/owl.theme.default.css' );
+	//.js files. owl carousel and custom js
 	wp_enqueue_script( 'owl_js', get_stylesheet_directory_uri() . '/js/owl.carousel.min.js',false);
 	wp_enqueue_script( 'custom-js', get_stylesheet_directory_uri() . '/js/custom.js?'.time(),false);
 }
 
-
+//Created a custom sidebar. Sidebar name is "Footer Bottom. Added styles for this widget and for heading.
 function my_custom_sidebar() {
     register_sidebar(
         array (
@@ -26,12 +29,13 @@ function my_custom_sidebar() {
 }
 add_action( 'widgets_init', 'my_custom_sidebar' );
 
+//added setting for theme customizer. Most of them with default values.
  function custom_register_theme_customizer( $wp_customize ) {
  
     $wp_customize->add_section('home_page_banner_section', array(
 		'title'          => 'Home Page Banner Section'
 	));
-		//adding setting for footer text area
+		//added setting for footer text area
 	$wp_customize->add_setting('sk_home_top_slider_image1',array(
 			'default'		=> 'wp-content/uploads/2018/11/pic1.png',
 			'sanitize_callback'	=> 'esc_url_raw',
@@ -82,6 +86,7 @@ add_action( 'widgets_init', 'my_custom_sidebar' );
 }
 add_action( 'customize_register', 'custom_register_theme_customizer' );
 
+
 function work_custom_post_type(){
 	$args = array(
 		'label'=>'Our Work',
@@ -110,6 +115,7 @@ function work_custom_post_type(){
 }
 add_action('init','work_custom_post_type',0);
 
+
 function work_custom_category() {
   $args = array(
     'label' => 'Categories',
@@ -121,10 +127,11 @@ function work_custom_category() {
 }
 add_action( 'init', 'work_custom_category');
 
-/*divi faq toggle*/
+
 add_action('wp_footer','faq_toggle_closed_default');
 function faq_toggle_closed_default(){?>
 	<script>
+
 	jQuery(function($){
 		$('.et_pb_accordion .et_pb_toggle_open').addClass('et_pb_toggle_close').removeClass('et_pb_toggle_open');
 
@@ -135,6 +142,7 @@ function faq_toggle_closed_default(){?>
 			},700);
 		});	
 	});
+
 	jQuery(window).load(function(){
 		var distance = jQuery('.scroll_sticky,.main-menu').offset().top,
 		$window = jQuery(window);
@@ -149,12 +157,13 @@ function faq_toggle_closed_default(){?>
 	</script>
 <?php }
 
+
 add_action('init','image_resize_custom');
 function image_resize_custom(){
 	add_image_size( 'work-cropped-480x350', 480, 350, true );
 }
 
-/*******Contact Form Date Slider*********/
+
 function contact_date_shortcode(){
 	ob_start();
 	?>
@@ -186,4 +195,5 @@ function contact_date_shortcode(){
 	<?Php
 	return ob_get_clean();
 }
+
 add_shortcode('contact_date_shortcode','contact_date_shortcode');
