@@ -595,7 +595,8 @@ line-height:35px;
 	justify-content: center;
 	align-items: center;
 }
-.unavailable {
+.unavailable
+ {
 	text-align: center;
 }
 .unavailable h3{
