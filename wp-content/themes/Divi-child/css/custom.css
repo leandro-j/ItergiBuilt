@@ -582,7 +582,8 @@ line-height:35px;
     background-repeat: no-repeat;
     width: 27px;
 }
-.owl-nav .owl-next {
+.owl-nav .owl-next 
+{
     background: transparent !important;
 	background-image:url("http://aoge.uaecono7.beget.tech/wp-content/uploads/2018/11/right.png") !important;
 	background-repeat:no-repeat;
