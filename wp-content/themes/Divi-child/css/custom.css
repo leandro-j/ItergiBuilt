@@ -162,7 +162,8 @@ sup {
  letter-spacing:1px;
  font-weight:bold !important;
 }
-.et_pb_fullwidth_menu .fullwidth-menu-nav > ul,.main-menu #et-top-navigation > ul{
+.et_pb_fullwidth_menu .fullwidth-menu-nav > ul,.main-menu #et-top-navigation > ul
+{
  padding: 0 !important;
 }
 .et_pb_fullwidth_menu .fullwidth-menu-nav li,.main-menu #et-top-navigation #top-menu li{
