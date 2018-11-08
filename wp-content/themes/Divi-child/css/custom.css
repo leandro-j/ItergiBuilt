@@ -762,8 +762,9 @@ line-height:35px;
 	.et_header_style_split #main-header{
 	padding:0px;
 	}
-	.et_header_style_split #logo{
-	max-height:inherit;
+	.et_header_style_split #logo
+	{
+		max-height:inherit;
 	}
 	.et_header_style_split #et_mobile_nav_menu{
 	display:none;
