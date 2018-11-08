@@ -241,11 +241,11 @@
 						<div class="header-top-right-inner">
 							<div class="phone_number">
 								<?php if ( '' !== ( $et_phone_number = et_get_option( 'phone_number' ) ) ) : ?>
-								<span id="et-info-phone"><?php echo et_sanitize_html_input_text( $et_phone_number ); ?></span>
+								<a href="tel:<?php echo et_sanitize_html_input_text( $et_phone_number ); ?>"><span id="et-info-phone"><?php echo et_sanitize_html_input_text( $et_phone_number ); ?></span></a>
 							<?php endif; ?>
 							</div>
 							<div class="appointment_button">
-								<a href="#">MAKE AN APPOINTMENT</a>
+								<a href="/contact-us">MAKE AN APPOINTMENT  <i class="fa fa-caret-right" aria-hidden="true"></i></a>
 							</div>
 						</div>
 					</div>
