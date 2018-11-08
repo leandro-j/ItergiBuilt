@@ -493,7 +493,15 @@ margin-bottom: 3px;
 font-size:21px;
 line-height:35px;
 }
-
+/********sidebar***********/
+#left-area {
+    width: 100%;
+    padding: 23px 0px 0px !important;
+    float: none !important;
+}
+#sidebar{
+	display:none !important;
+}
 /*****slider****/
 /* .slider_section{
 	width:90%;
