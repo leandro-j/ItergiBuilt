@@ -148,7 +148,8 @@ sup {
 .appointment_button a:after{
  content: attr(data-icon);
 }
-.fullwidth-menu-nav,.main-menu{
+.fullwidth-menu-nav,.main-menu
+{
  text-align:center;
  background:#e36135;
 }
