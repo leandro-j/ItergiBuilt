@@ -245,7 +245,7 @@
 							<?php endif; ?>
 							</div>
 							<div class="appointment_button">
-								<a href="/contact-us">MAKE AN APPOINTMENT  <i class="fa fa-caret-right" aria-hidden="true"></i></a>
+								<a href="/contact-us">MAKE AN APPOINTMENT  <i class="fa fa-caret-right make_an_icon" aria-hidden="true"></i></a> 
 							</div>
 						</div>
 					</div>
