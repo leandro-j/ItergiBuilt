@@ -160,3 +160,62 @@ function contact_date_shortcode(){
 	return ob_get_clean();
 }
 add_shortcode('contact_date_shortcode','contact_date_shortcode');
+
+function share_icon_shortcode(){
+	ob_start();
+	?>
+	<ul class="footer_social">
+		<?php if ( 'on' === et_get_option( 'divi_show_google_icon', 'on' ) ) : ?>
+			<li class="et-social-icon et-social-google-plus">
+				<a href="<?php echo esc_url( et_get_option( 'divi_google_url', '#' ) ); ?>" class="icon1">
+					<i class="fa fa-google-plus"></i>
+				</a>
+			</li>
+		<?php endif; ?>
+		<?php if ( 'on' === et_get_option( 'divi_show_facebook_icon', 'on' ) ) : ?>
+			<li class="et-social-icon et-social-facebook">
+				<a href="<?php echo esc_url( et_get_option( 'divi_facebook_url', '#' ) ); ?>" class="icon1">
+					<i class="fa fa-facebook"></i>
+				</a>
+			</li>
+		<?php endif; ?>
+		<?php if ( 'on' === et_get_option( 'divi_show_twitter_icon', 'on' ) ) : ?>
+			<li class="et-social-icon et-social-twitter">
+				<a href="<?php echo esc_url( et_get_option( 'divi_twitter_url', '#' ) ); ?>" class="icon1">
+					<i class="fa fa-twitter"></i>
+				</a>
+			</li>
+		<?php endif; ?>
+		<?php if ( 'on' === et_get_option( 'divi_show_instagram_icon', 'on' ) ) : ?>
+			<li class="et-social-icon et-social-instagram">
+				<a href="<?php echo esc_url( et_get_option( 'divi_instagram_url', '#' ) ); ?>" class="icon1">
+					<i class="fa fa-instagram"></i>
+				</a>
+			</li>
+		<?php endif; ?>
+		<?php if ( 'on' === et_get_option( 'divi_show_linkedin_icon', 'on' ) ) : ?>
+			<li class="et-social-icon et-social-linkedin">
+				<a href="<?php echo esc_url( et_get_option( 'divi_linkedin_url', '#' ) ); ?>" class="icon1">
+					<i class="fa fa-linkedin"></i>
+				</a>
+			</li>
+		<?php endif; ?>
+
+		<?php if ( 'on' === et_get_option( 'divi_show_rss_icon', 'on' ) ) : ?>
+		<?php
+			$et_rss_url = '' !== et_get_option( 'divi_rss_url' )
+				? et_get_option( 'divi_rss_url' )
+				: get_bloginfo( 'rss2_url' );
+		?>
+			<li class="et-social-icon et-social-rss">
+				<a href="<?php echo esc_url( $et_rss_url ); ?>" class="icon">
+					<span><?php esc_html_e( 'RSS', 'Divi' ); ?></span>
+				</a>
+			</li>
+		<?php endif; ?>
+
+	</ul>	
+	
+<?php	return ob_get_clean();
+}
+add_shortcode('share_icon_shortcode','share_icon_shortcode');	
