@@ -152,7 +152,8 @@ sup {
  text-align:center;
  background:#e36135;
 }
-.et_header_style_split #et-top-navigation{
+.et_header_style_split #et-top-navigation
+{
 	padding: 0 !important;
 }
 .fullwidth-menu-nav a,.main-menu #et-top-navigation #top-menu a{
