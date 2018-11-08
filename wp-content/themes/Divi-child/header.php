@@ -253,7 +253,8 @@
 			</div> <!-- .container -->	
 			<?php
 			$logo_container = ob_get_clean();
-			echo apply_filters( 'et_html_logo_container', $logo_container );?>				
+			echo apply_filters( 'et_html_logo_container', $logo_container );?>		
+			<?php if(!is_front_page){?>
 			<div class="main-menu">	
 				<div id="et-top-navigation" data-height="<?php echo esc_attr( et_get_option( 'menu_height', '66' ) ); ?>" data-fixed-height="<?php echo esc_attr( et_get_option( 'minimized_menu_height', '40' ) ); ?>">
 					<?php if ( ! $et_slide_header || is_customize_preview() ) : ?>
@@ -330,7 +331,8 @@
 
 					?>
 				</div> <!-- #et-top-navigation -->
-			</div>					
+			</div>
+			<?php }?>			
 		</header> <!-- #main-header -->
 	<?php
 		$main_header = ob_get_clean();
